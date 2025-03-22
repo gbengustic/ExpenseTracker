@@ -1,0 +1,62 @@
+﻿<Window x:Class="ExpenseTrackerWPF.AddExpenseWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ExpenseTrackerWPF"
+        mc:Ignorable="d"
+        Title="Add Expense" Height="300" Width="400">
+    <Grid>
+        <!-- Layout for adding a new expense -->
+        <StackPanel Margin="20">
+            <!-- Input fields for category, amount, and description -->
+            <Grid>
+                <TextBox   x:Name="CategoryInput" Margin="0,5"/>
+                <TextBlock IsHitTestVisible="False" Text="Category" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0" Foreground="DarkGray">
+                    <TextBlock.Style>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Text, ElementName=CategoryInput}" Value="">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+            </Grid>
+            <Grid>
+                <TextBox   x:Name="AmountInput" Margin="0,5"/>
+                <TextBlock IsHitTestVisible="False" Text="Amount" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0" Foreground="DarkGray">
+                    <TextBlock.Style>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Text, ElementName=AmountInput}" Value="">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+            </Grid>
+            <Grid>
+                <TextBox   x:Name="DescriptionInput" Margin="0,5"/>
+                <TextBlock IsHitTestVisible="False" Text="Description" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0" Foreground="DarkGray">
+                    <TextBlock.Style>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Text, ElementName=DescriptionInput}" Value="">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+            </Grid>
+            <!-- Button to save the expense -->
+            <Button Content="Save" Click="SaveExpense_Click" Margin="0,10,0,0"/>
+        </StackPanel>
+    </Grid>
+</Window>
